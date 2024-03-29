@@ -1,3 +1,4 @@
+
 (function () {
     'use strict';
 
@@ -151,6 +152,8 @@ Lampa.SettingsApi.addComponent({
 			}
 		});
 
+ 
+
 		Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
@@ -171,7 +174,7 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
 		
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'TMDB',
@@ -207,48 +210,46 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
        
-		//**
-		*Lampa.SettingsApi.addParam({
-		*			component: 'add_interface_plugin',
-		*			param: {
-		*				name: 'Feedback',
-		*				type: 'select',
-		*				values: {
-		*					1:	'Установить',
-		*					2:	'Удалить',
-		*				},
-		*			//default: '1',
-		*				},
-		*			field: {
-		*				name: 'Отзывы',
-		*				description: 'Добавляет в карточке кнопку с отзывами'
-		*			},
-		*			onChange: function(value) {
-		*				if (value == '1') {
-		*					itemON('http://newtv.mail66.org/o.js', 'Отзывы', '@elenatv99', 'Feedback');
-		*				}
-		*				if (value == '2') {
-		*					var pluginToRemoveUrl = "http://newtv.mail66.org/o.js";
-		*					deletePlugin(pluginToRemoveUrl);
-		*				}
-		*			},
-		*			onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-		*				var myResult = checkPlugin('http://newtv.mail66.org/o.js')
-		*				setTimeout(function() {	
-		*					$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
-		*					if (myResult) {
-		*						$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-		*					} else {
-		*						$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-		*					}
-		*				}, 100);
-		*			}
-		*});
-		*/
+		/*Lampa.SettingsApi.addParam({
+					component: 'add_interface_plugin',
+					param: {
+						name: 'Feedback',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+						},
+					field: {
+						name: 'Отзывы',
+						description: 'Добавляет в карточке кнопку с отзывами'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('http://newtv.mail66.org/o.js', 'Отзывы', '@elenatv99', 'Feedback');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://newtv.mail66.org/o.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						setTimeout(function() {	
+							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
+		});*/
        
-		Lampa.SettingsApi.addParam({
+	/*	Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Tricks',
@@ -283,7 +284,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
+		});*/
 		
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
@@ -302,15 +303,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://nb557.github.io/plugins/rating.js', 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
+							itemON('https://airtsar.github.io/plugins/rating.js', 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://nb557.github.io/plugins/rating.js";
+							var pluginToRemoveUrl = "https://airtsar.github.io/plugins/rating.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://nb557.github.io/plugins/rating.js')
+						var myResult = checkPlugin('https://airtsar.github.io/plugins/rating.js')
 						setTimeout(function() {	
 							$('div[data-name="Rating"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -321,7 +322,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Want',
@@ -356,8 +357,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Sub_reset',
@@ -392,8 +393,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
-	         Lampa.SettingsApi.addParam({
+		});*/
+	        /* Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Mult',
@@ -428,8 +429,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Collections',
@@ -464,8 +465,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	      /*  Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Weather',
@@ -500,8 +501,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	     /*   Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'Cub_off',
@@ -536,7 +537,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
 	        Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
@@ -554,15 +555,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-						       itemON('https://bylampa.github.io/interface.js', 'Стильный Интерфейс', '@lampa', 'Style_interface_fix');
+						       itemON('https://airtsar.github.io/plugins/interface.js', 'Стильный Интерфейс', '@lampa', 'Style_interface_fix');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://bylampa.github.io/interface.js";
+							var pluginToRemoveUrl = "https://airtsar.github.io/plugins/interface.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 			                onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://bylampa.github.io/interface.js')
+						var myResult = checkPlugin('https://airtsar.github.io/plugins/interface.js')
 						setTimeout(function() {	
 							$('div[data-name="Style_interface_fix"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -573,7 +574,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'New_cat',
@@ -608,7 +609,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
 	        Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
@@ -626,15 +627,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-						       itemON('https://bylampa.github.io/source.js', 'Дополнительные Источники', '@scabrum', 'New_source');
+						       itemON('https://airtsar.github.io/plugins/source.js', 'Дополнительные Источники', '@scabrum', 'New_source');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://bylampa.github.io/source.js";
+							var pluginToRemoveUrl = "https://airtsar.github.io/plugins/source.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 			                onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://bylampa.github.io/source.js')
+						var myResult = checkPlugin('https://airtsar.github.io/plugins/source.js')
 						setTimeout(function() {	
 							$('div[data-name="New_source"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -645,7 +646,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	       /* Lampa.SettingsApi.addParam({
 	        			component: 'add_interface_plugin',
 					param: {
 						name: 'Start',
@@ -680,7 +681,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		  });
+		  });*/
 	          Lampa.SettingsApi.addParam({
 						component: 'add_interface_plugin',
 						param: {
@@ -698,15 +699,15 @@ Lampa.SettingsApi.addComponent({
 						},
 						onChange: function(value) {
 							if (value == '1') {
-								itemON('https://bazzzilius.github.io/scripts/gold_theme.js', 'Золотая Тема', '@BazZziliuS', 'goldtheme');
+								itemON('https://airtsar.github.io/plugins/gold_theme.js', 'Золотая Тема', '@BazZziliuS', 'goldtheme');
 							}
 							if (value == '2') {
-								var pluginToRemoveUrl = "https://bazzzilius.github.io/scripts/gold_theme.js";
+								var pluginToRemoveUrl = "https://airtsar.github.io/plugins/gold_theme.js";
 								deletePlugin(pluginToRemoveUrl);
 							}
 						},
 								onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-							var myResult = checkPlugin('https://bazzzilius.github.io/scripts/gold_theme.js')
+							var myResult = checkPlugin('https://airtsar.github.io/plugins/gold_theme.js')
 							setTimeout(function() {	
 								$('div[data-name="goldtheme"]').append('<div class="settings-param__status one"></div>')
 								if (myResult) {
@@ -735,16 +736,16 @@ Lampa.SettingsApi.addComponent({
 	        });*/
 	        
 
-        Lampa.Settings.listener.follow('open', function (e) {
+        /*Lampa.Settings.listener.follow('open', function (e) {
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
 							component: 'add_management_plugin',
 							name: 'Management'
 						});
 					}
-		});
+		});*/
 /* Управление */
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
 						name: 'add_management_plugin',
@@ -762,9 +763,9 @@ Lampa.SettingsApi.addComponent({
 							}
 						});
 					}
-		});
+		});*/
        
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
                                		name: 'Exit_Menu',
@@ -799,9 +800,9 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
        
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'New_Version',
@@ -836,9 +837,9 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
        
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
                                			name: 'Hot_Buttons',
@@ -873,9 +874,9 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
+		});*/
        
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'DLNA',
@@ -910,8 +911,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	      /*  Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'Select_Weapon',
@@ -946,8 +947,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'Touch_off',
@@ -982,8 +983,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'Wsoff',
@@ -1018,8 +1019,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
-	        Lampa.SettingsApi.addParam({
+		});*/
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
 						name: 'Redirect',
@@ -1054,7 +1055,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
+		});*/
 	      /*  Lampa.SettingsApi.addParam({
                                   component: 'add_management_plugin',
                                   param: {
@@ -1294,7 +1295,7 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
                      
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
 						name: 'Switch_Parser',
@@ -1329,7 +1330,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
+		});*/
          
 		Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
@@ -1404,7 +1405,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);		  
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	      /*  Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
 						name: 'Check_server',
@@ -1439,8 +1440,8 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);		  
 					}
-		});
-	         Lampa.SettingsApi.addParam({
+		});*/
+	         /*Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
 						name: 'Torr_download',
@@ -1475,7 +1476,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);		  
 					}
-		});
+		});*/
 	/*
 	        Lampa.SettingsApi.addParam({
                                   component: 'add_torrent_plugin',
@@ -1494,16 +1495,16 @@ Lampa.SettingsApi.addComponent({
                                    }
 		});*/			   
 	
-		Lampa.Settings.listener.follow('open', function (e) {
+	/*	Lampa.Settings.listener.follow('open', function (e) {
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
 							component: 'add_tv_plugin',
 							name: 'TV'
 						});
 					}
-		});
+		});*/
 /* Телеканалы */
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
 						name: 'add_tv_plugin',
@@ -1668,7 +1669,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
 	       /* Lampa.SettingsApi.addParam({
                                   component: 'add_tv_plugin',
                                   param: {
@@ -1686,16 +1687,16 @@ Lampa.SettingsApi.addComponent({
                                    }
 		});*/			   
 
-		Lampa.Settings.listener.follow('open', function (e) {
+		/*Lampa.Settings.listener.follow('open', function (e) {
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
 							component: 'add_radio_plugin',
 							name: 'Radio'
 						});
 					}
-		});
+		});*/
 /* Радио */
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
 						name: 'add_radio_plugin',
@@ -1787,7 +1788,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
 	       /* Lampa.SettingsApi.addParam({
                                   component: 'add_radio_plugin',
                                   param: {
@@ -1923,7 +1924,7 @@ Lampa.SettingsApi.addComponent({
                                    }
 		}); */
 /* Реклама */
-Lampa.SettingsApi.addParam({
+/*Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
 						name: 'add_ads',
@@ -1939,9 +1940,9 @@ Lampa.SettingsApi.addParam({
                 },0);
                 }
 	
-         });	
+         });	*/
 /* Счётчик Яндекса */    
-	(function(m, e, t, r, i, k, a) {
+	/*(function(m, e, t, r, i, k, a) {
                        m[i] = m[i] || function() {
                                (m[i].a = m[i].a || []).push(arguments)
                        };
@@ -1956,7 +1957,7 @@ Lampa.SettingsApi.addParam({
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
     ym(93937344, "init", {clickmap: true,trackLinks: true,accurateTrackBounce: true})
     var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93937344" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-    $('body').append(METRIKA);
+    $('body').append(METRIKA);*/
 } // /* addonStart */
 if (!!window.appready) addonStart();
 else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') addonStart()});	
