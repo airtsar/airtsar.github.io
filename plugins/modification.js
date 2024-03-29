@@ -77,7 +77,7 @@ var _0x3fd9e7=_0x2a8a;(function(_0x407b2e,_0x2ee13d){var _0x219b8d=_0x2a8a,_0x17
 
 /**
 *-----
-*tweaks&tricks
+*rating
 *-----
 */
 
