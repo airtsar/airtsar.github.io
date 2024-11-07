@@ -1,12 +1,12 @@
 (function() {
     'use strict';
 
-    // Добавляем пункт для ввода токена пользователя в настройки интерфейса
+    // Функция для добавления пользовательского токена в настройки интерфейса
     Lampa.SettingsApi.addParam({
         component: 'interface',
         param: {
             name: 'user_token',
-            type: 'string', // Поле для ввода текста (вместо input, пробуем string)
+            type: 'string', // Поле для ввода текста
             default: '' // Значение по умолчанию
         },
         field: {
@@ -14,10 +14,18 @@
             description: "Введите уникальный токен для синхронизации настроек" // Описание поля
         },
         onRender: function(item) {
+            console.log("Добавление поля ввода токена на экран настроек");
+
+            // Попробуем добавить элемент в конец всех настроек интерфейса
             setTimeout(function() {
-                // Размещаем поле после элемента с именем "card_interfice_poster"
-                $('div[data-name="user_token"]').insertAfter('div[data-name="card_interfice_poster"]');
-            }, 0);
+                const $targetElement = $('div.settings__content'); // Выбираем основной контейнер настроек
+                if ($targetElement.length) {
+                    console.log("Контейнер настроек найден, добавляем поле токена");
+                    $targetElement.append($('div[data-name="user_token"]')); // Добавляем наше поле
+                } else {
+                    console.log("Контейнер настроек не найден");
+                }
+            }, 100); // Увеличиваем задержку для надежного добавления
         },
         onChange: function(item) {
             const token = item.value;
@@ -25,5 +33,4 @@
             Lampa.Storage.set('user_token', token); // Сохраняем токен в Lampa.Storage
         }
     });
-
 })();
