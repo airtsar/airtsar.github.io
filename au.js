@@ -4,6 +4,16 @@
     const keys = ['airtsar_set', 'protocol', 'helper'];
     let previousSettings = {};
 
+    // Функция для безопасного получения значений из Lampa.Storage
+    function getSetting(key) {
+        const value = Lampa.Storage.get(key);
+        if (typeof value === 'undefined') {
+            console.warn(`Warning: Значение для ключа "${key}" не найдено.`);
+            return null;
+        }
+        return value;
+    }
+
     // Добавляем поле для ввода токена в настройки интерфейса
     Lampa.SettingsApi.addParam({
         component: 'interface',
@@ -42,8 +52,8 @@
 
         const currentSettings = {};
         keys.forEach(key => {
-            const value = Lampa.Storage.get(key);
-            if (value !== undefined) {
+            const value = getSetting(key);
+            if (value !== null) {
                 currentSettings[key] = value;
             }
         });
@@ -82,6 +92,7 @@
         }
     }
 
+    // Проверяем изменения каждые 5 минут
     setInterval(trackChangesAndSync, 5 * 60 * 1000);
 
 })();
