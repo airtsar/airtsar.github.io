@@ -6,7 +6,7 @@
         component: 'interface',
         param: {
             name: 'user_token',
-            type: 'input', // Поле для ввода текста
+            type: 'string', // Поле для ввода текста (вместо input, пробуем string)
             default: '' // Значение по умолчанию
         },
         field: {
