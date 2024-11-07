@@ -1,36 +1,26 @@
-(function() {
-    'use strict';
+Lampa.SettingsApi.addParam({
+    component: 'authorization', // Новый компонент для авторизации
+    param: {
+        name: 'user_token',
+        type: 'input',
+        values: '',
+        placeholder: 'Введите ваш токен',
+        default: ''
+    },
+    field: {
+        name: 'Токен пользователя',
+        description: 'Введите уникальный токен для подключения к серверу'
+    },
+    onRender: function(item) {
+        console.log("onRender сработал для компонента авторизации, добавляем поле для ввода токена");
 
-    // Функция для добавления пользовательского токена в настройки интерфейса
-    Lampa.SettingsApi.addParam({
-        component: 'interface',
-        param: {
-            name: 'user_token',
-            type: 'string', // Поле для ввода текста
-            default: '' // Значение по умолчанию
-        },
-        field: {
-            name: 'Токен пользователя',
-            description: "Введите уникальный токен для синхронизации настроек" // Описание поля
-        },
-        onRender: function(item) {
-            console.log("Добавление поля ввода токена на экран настроек");
-
-            // Попробуем добавить элемент в конец всех настроек интерфейса
-            setTimeout(function() {
-                const $targetElement = $('div.settings__content'); // Выбираем основной контейнер настроек
-                if ($targetElement.length) {
-                    console.log("Контейнер настроек найден, добавляем поле токена");
-                    $targetElement.append($('div[data-name="user_token"]')); // Добавляем наше поле
-                } else {
-                    console.log("Контейнер настроек не найден");
-                }
-            }, 100); // Увеличиваем задержку для надежного добавления
-        },
-        onChange: function(item) {
-            const token = item.value;
-            console.log('Token введен:', token); // Выводим введенный токен для отладки
-            Lampa.Storage.set('user_token', token); // Сохраняем токен в Lampa.Storage
-        }
-    });
-})();
+        // Устанавливаем таймер, чтобы поле отображалось ниже других компонентов, если это необходимо
+        setTimeout(function() {
+            $('div[data-name="user_token"]').insertAfter('div[data-name="location_server"]');
+        }, 100);
+    },
+    onChange: function(item) {
+        console.log("Изменено значение токена:", item.value);
+        // Здесь можно добавить логику для проверки или сохранения токена
+    }
+});
