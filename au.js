@@ -1,98 +1,29 @@
 (function() {
     'use strict';
 
-    const keys = ['airtsar_set', 'protocol', 'helper'];
-    let previousSettings = {};
-
-    // Функция для безопасного получения значений из Lampa.Storage
-    function getSetting(key) {
-        const value = Lampa.Storage.get(key);
-        if (typeof value === 'undefined') {
-            console.warn(`Warning: Значение для ключа "${key}" не найдено.`);
-            return null;
-        }
-        return value;
-    }
-
-    // Добавляем поле для ввода токена в настройки интерфейса
+    // Добавляем пункт для ввода токена пользователя в настройки интерфейса
     Lampa.SettingsApi.addParam({
         component: 'interface',
         param: {
             name: 'user_token',
-            type: 'input',
-            default: '',
+            type: 'input', // Поле для ввода текста
+            default: '' // Значение по умолчанию
         },
         field: {
             name: 'Токен пользователя',
-            description: "Введите уникальный токен для синхронизации настроек",
+            description: "Введите уникальный токен для синхронизации настроек" // Описание поля
         },
         onRender: function(item) {
             setTimeout(function() {
-                const tokenElement = $('div[data-name="user_token"]');
-                if (tokenElement.length) {
-                    tokenElement.insertAfter('div[data-name="logo_card"]');
-                }
+                // Размещаем поле после элемента с именем "card_interfice_poster"
+                $('div[data-name="user_token"]').insertAfter('div[data-name="card_interfice_poster"]');
             }, 0);
         },
         onChange: function(item) {
             const token = item.value;
-            if (token) {
-                console.log('Token введен:', token);
-                Lampa.Storage.set('user_token', token);
-            }
+            console.log('Token введен:', token); // Выводим введенный токен для отладки
+            Lampa.Storage.set('user_token', token); // Сохраняем токен в Lampa.Storage
         }
     });
-
-    function trackChangesAndSync() {
-        const token = Lampa.Storage.get('user_token');
-        if (!token) {
-            console.log('Токен не введен. Ожидание...');
-            return;
-        }
-
-        const currentSettings = {};
-        keys.forEach(key => {
-            const value = getSetting(key);
-            if (value !== null) {
-                currentSettings[key] = value;
-            }
-        });
-
-        let hasChanges = false;
-        for (let key in currentSettings) {
-            if (currentSettings[key] !== previousSettings[key]) {
-                hasChanges = true;
-                break;
-            }
-        }
-
-        if (hasChanges) {
-            console.log('Изменения обнаружены, отправка данных на сервер');
-
-            fetch('https://yourserver.com/save_settings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    token: token,
-                    settings: currentSettings,
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Настройки сохранены на сервере:', data);
-                previousSettings = { ...currentSettings };
-            })
-            .catch(error => {
-                console.error('Ошибка при отправке данных:', error);
-            });
-        } else {
-            console.log('Нет изменений, синхронизация не требуется');
-        }
-    }
-
-    // Проверяем изменения каждые 5 минут
-    setInterval(trackChangesAndSync, 5 * 60 * 1000);
 
 })();
